@@ -2,6 +2,16 @@ html {
     background-color: lightgoldenrodyellow;
     font-family: --apple-system, sans-serif;
 }
-#roundCountInput{
+input {
     width: 99%;
+}
+
+.controls {
+	display: flex;
+	width: 100%;
+}
+
+.controls div {
+	width: 100%;
+	padding: 10px;
 }

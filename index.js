@@ -1,12 +1,14 @@
 // setup
-let roundCount = 100000
-const roundLength = 30
-// dom elements
-const ctx = document.getElementById('chart');
-const value = document.querySelector("#roundCountValue");
-const input = document.querySelector("#roundCountInput");
+let roundCount = 10000
+let roundLength = 30
 let results = [];
 let resultLabels = [];
+// dom elements
+const ctx = document.getElementById('chart');
+const roundCountLabel = document.querySelector("#roundCountLabel");
+const roundCountInput = document.querySelector("#roundCountInput");
+const roundLengthLabel = document.querySelector("#roundLengthLabel");
+const roundLengthInput = document.querySelector("#roundLengthInput");
 
 function flipCoin() {
   return Math.floor(Math.random() * 2)
@@ -27,8 +29,10 @@ function generateData() {
 }
 
 // Initial setup
-input.value = roundCount;
-value.textContent = input.value;
+roundCountInput.value = roundCount;
+roundCountLabel.textContent = roundCountInput.value;
+roundLengthInput.value = roundLength;
+roundLengthLabel.textContent = roundLengthInput.value;
 generateData();
 
 const chart = new Chart(ctx, {
@@ -51,10 +55,22 @@ const chart = new Chart(ctx, {
 });
 
 // Regenerate when data is updated
-input.addEventListener("input", (event) => {
-  value.textContent = event.target.value;
-  roundCount = event.target.value
+roundCountInput.addEventListener("input", (event) => {
+  roundCount = parseInt(event.currentTarget.value);
+  roundCountLabel.textContent = roundCount
+
   generateData()
   chart.data.datasets[0].data = results;
+  chart.update();
+});
+
+roundLengthInput.addEventListener("input", (event) => {
+  roundLength = parseInt(event.currentTarget.value);
+  roundLengthLabel.textContent = roundLength
+  console.log({roundLength})
+
+  generateData()
+  chart.data.datasets[0].data = results;
+  chart.data.labels = resultLabels
   chart.update();
 });

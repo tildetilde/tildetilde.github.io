@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chansfördelning</title>
+    <title>Myntkastning</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
   <body>
     <main>
-        <h1>Chansfördelning</h1>  
-        <input id="roundCountInput" type="range" min="1" max="1000000" />
-        <p>Value: <output id="roundCountValue"></output></p>
+        <h1>Chansfördelning</h1>
+        <div class="controls">
+          <div>
+            <p>Myntkast per runda: <span id="roundLengthLabel"></span></p>
+            <input id="roundLengthInput" type="range" min="10" max="500" />
+          </div>
+          <div>
+            <p>Antal rundor: <span id="roundCountLabel"></span></p>
+            <input id="roundCountInput" type="range" min="1" max="100000" />
+          </div>
+        </div>
+
         <div>
           <canvas id="chart"></canvas>
         </div>
