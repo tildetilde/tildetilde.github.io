@@ -6,6 +6,11 @@ input {
     width: 99%;
 }
 
+.header {
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+
 .controls {
 	display: flex;
 	width: 100%;
@@ -14,4 +19,8 @@ input {
 .controls div {
 	width: 100%;
 	padding: 10px;
+}
+
+.controls p {
+	margin-top: 0;
 }

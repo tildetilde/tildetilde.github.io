@@ -30,7 +30,7 @@ function generateData() {
 
 // Initial setup
 roundCountInput.value = roundCount;
-roundCountLabel.textContent = roundCountInput.value;
+roundCountLabel.textContent = Number(roundCount).toLocaleString();
 roundLengthInput.value = roundLength;
 roundLengthLabel.textContent = roundLengthInput.value;
 generateData();
@@ -40,7 +40,7 @@ const chart = new Chart(ctx, {
   data: {
     labels: resultLabels,
     datasets: [{
-      label: 'Antal klave',
+      label: 'Utfall totalt',
       data: results,
       borderWidth: 1
     }]
@@ -57,7 +57,7 @@ const chart = new Chart(ctx, {
 // Regenerate when data is updated
 roundCountInput.addEventListener("input", (event) => {
   roundCount = parseInt(event.currentTarget.value);
-  roundCountLabel.textContent = roundCount
+  roundCountLabel.textContent = Number(roundCount).toLocaleString();
 
   generateData()
   chart.data.datasets[0].data = results;
@@ -66,8 +66,7 @@ roundCountInput.addEventListener("input", (event) => {
 
 roundLengthInput.addEventListener("input", (event) => {
   roundLength = parseInt(event.currentTarget.value);
-  roundLengthLabel.textContent = roundLength
-  console.log({roundLength})
+  roundLengthLabel.textContent = Number(roundLength).toLocaleString();
 
   generateData()
   chart.data.datasets[0].data = results;
