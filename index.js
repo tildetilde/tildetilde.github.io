@@ -40,7 +40,7 @@ const chart = new Chart(ctx, {
   data: {
     labels: resultLabels,
     datasets: [{
-      label: 'Klave per runda',
+      label: 'Antal klave',
       data: results,
       borderWidth: 1
     }]
